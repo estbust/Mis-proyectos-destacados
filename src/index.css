@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-300 min-h-screen;
+  }
+
+  /* Inversión explícita e infalible para el Modo Oscuro */
+  html.dark {
+    color-scheme: dark;
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+  }
+
+  html.dark body,
+  html.dark #root,
+  html.dark main {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+  }
+
+  html.dark header {
+    background-color: rgba(15, 23, 42, 0.85) !important;
+    border-color: #1e293b !important;
+  }
+
+  html.dark footer {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border-color: #1e293b !important;
+  }
+
+  html.dark article {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+  }
+
+  html.dark article h3,
+  html.dark header h1,
+  html.dark section h2 {
+    color: #ffffff !important;
+  }
+
+  html.dark article p,
+  html.dark section p,
+  html.dark header p {
+    color: #cbd5e1 !important;
+  }
+
+  html.dark nav button:not(.bg-indigo-600) {
+    background-color: #1e293b !important;
+    color: #cbd5e1 !important;
+    border-color: #334155 !important;
+  }
+}
+
+.card-animate {
+  animation: cardFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
